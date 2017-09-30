@@ -14,5 +14,8 @@
     <ul id="countries_list" runat="server">
 
     </ul>
+    <ul id="countries_list_reversed" runat="server">
+
+    </ul>
 </body>
 </html>
