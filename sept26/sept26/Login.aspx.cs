@@ -41,6 +41,13 @@ namespace sept26
 
         } //end of code for login_button_Click
 
+        /// <summary>
+        /// In C#, strings have a length property that returns the length of a string in a integer. 
+        /// When clicking a button with onclick="length_button_Click", username_input is assigned the value of the textbox with ID="username".
+        /// The variable length is assigned the value of 7.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void length_button_Click(object sender, EventArgs e)
         {
             string username_input = username.Text;
@@ -48,10 +55,12 @@ namespace sept26
 
             if(username_input.Length == length)
             {
+                //If the length of username_input is equal to the length variable, this block of code will be read
                 server_response.Text = "Correct";
             }
             else
             {
+                //If the if statement's condition was not true, this block of code will be read instead
                 server_response.Text = "Guess again";
             }
         }
