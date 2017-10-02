@@ -57,7 +57,7 @@ namespace sept26
         /// <summary>
         /// Returns the area of a circle with the parameter rad
         /// </summary>
-        /// <param name="rad"></param>
+        /// <param name="rad">A double value representing radius</param>
         /// <returns></returns>
         public double area_of_circle(double rad)
         {
@@ -68,7 +68,7 @@ namespace sept26
         /// <summary>
         /// Returns the area of a sphere with the parameter rad
         /// </summary>
-        /// <param name="rad"></param>
+        /// <param name="rad">A double value representing radius</param>
         /// <returns></returns>
         public double area_of_sphere(double rad)
         {
@@ -80,8 +80,8 @@ namespace sept26
         /// <summary>
         /// Returns the area of a cylinder with two parameters, rad and hgt (radius and height)
         /// </summary>
-        /// <param name="rad"></param>
-        /// <param name="hgt"></param>
+        /// <param name="rad">A double variable representing radius</param>
+        /// <param name="hgt">A double variable representing height</param>
         /// <returns></returns>
         public double area_of_cylinder(double rad, double hgt)
         {

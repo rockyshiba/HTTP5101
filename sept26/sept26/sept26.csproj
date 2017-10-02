@@ -77,6 +77,7 @@
   <ItemGroup>
     <Content Include="Geometry.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="If.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Looping.aspx" />
     <Content Include="Web.config" />
@@ -91,6 +92,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="If.aspx.cs">
+      <DependentUpon>If.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="If.aspx.designer.cs">
+      <DependentUpon>If.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
