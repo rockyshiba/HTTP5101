@@ -75,15 +75,25 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FizzBuzz.aspx" />
     <Content Include="Geometry.aspx" />
     <Content Include="Global.asax" />
     <Content Include="If.aspx" />
+    <Content Include="Lists.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Looping.aspx" />
     <Content Include="stringArray.aspx" />
     <Content Include="Web.config" />
+    <Content Include="whileLoop.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FizzBuzz.aspx.cs">
+      <DependentUpon>FizzBuzz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FizzBuzz.aspx.designer.cs">
+      <DependentUpon>FizzBuzz.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Geometry.aspx.cs">
       <DependentUpon>Geometry.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -100,6 +110,13 @@
     </Compile>
     <Compile Include="If.aspx.designer.cs">
       <DependentUpon>If.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Lists.aspx.cs">
+      <DependentUpon>Lists.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lists.aspx.designer.cs">
+      <DependentUpon>Lists.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -122,6 +139,13 @@
     </Compile>
     <Compile Include="stringArray.aspx.designer.cs">
       <DependentUpon>stringArray.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="whileLoop.aspx.cs">
+      <DependentUpon>whileLoop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="whileLoop.aspx.designer.cs">
+      <DependentUpon>whileLoop.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
