@@ -80,6 +80,7 @@
     <Content Include="If.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Looping.aspx" />
+    <Content Include="stringArray.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -115,6 +116,13 @@
       <DependentUpon>Looping.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="stringArray.aspx.cs">
+      <DependentUpon>stringArray.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="stringArray.aspx.designer.cs">
+      <DependentUpon>stringArray.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
