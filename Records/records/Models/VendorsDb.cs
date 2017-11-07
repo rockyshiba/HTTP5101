@@ -56,8 +56,64 @@ namespace records.Models
                 while (reader.Read())
                 {
                     VendorsDb thisVendor = new VendorsDb();
-                    thisVendor.vendor_id = reader[0].ToString();
-                    thisVendor.vendor_name = reader[1].ToString();
+                    thisVendor.vendor_id = reader["vendor_id"].ToString();
+                    thisVendor.vendor_name = reader["vendor_name"].ToString();
+                    thisVendor.vendor_address1 = reader[2].ToString();
+                    thisVendor.vendor_address2 = reader[3].ToString();
+                    thisVendor.vendor_city = reader[4].ToString();
+                    thisVendor.vendor_state = reader[5].ToString();
+                    thisVendor.vendor_zip_code = reader[6].ToString();
+                    thisVendor.vendor_phone = reader[7].ToString();
+                    thisVendor.vendor_contact_last_name = reader[8].ToString();
+                    thisVendor.vendor_contact_first_name = reader[9].ToString();
+                    thisVendor.default_terms_id = reader[10].ToString();
+                    thisVendor.default_account_number = reader[11].ToString();
+
+                    vendors.Add(thisVendor);
+                }
+                reader.Close();
+                conn.Close();
+            }
+            catch(OracleException ex)
+            {
+                VendorsDb exceptionVendor = new VendorsDb();
+                exceptionVendor.vendor_id = ex.ErrorCode.ToString();
+                exceptionVendor.vendor_name = ex.ErrorCode.ToString();
+                vendors.Add(exceptionVendor);
+            }
+
+            return vendors;
+        }
+
+        /// <summary>
+        /// Returns a list of vendors from the Vendors table based on a name
+        /// </summary>
+        /// <param name="vendor_name">A vendor's name as a string</param>
+        /// <returns>List of VendorDb objects</returns>
+        public List<VendorsDb> GetAll(string vendor_name)
+        {
+            //Thank you, OMG Ponies https://stackoverflow.com/questions/3790424/usage-of-oracle-binding-variables-with-like-in-c-sharp
+            string searchQuery = "SELECT * " +
+                "FROM vendors " +
+                "WHERE vendor_name LIKE :vname || '%'";
+
+            vendors.Clear();
+
+            OracleConnection conn = new OracleConnection(connectionString);
+
+            try
+            {
+                conn.Open();
+                cmd = new OracleCommand(searchQuery, conn);
+                //Thank you, James Lawruk https://stackoverflow.com/questions/12812634/how-to-write-parameterized-oracle-insert-query
+                cmd.Parameters.Add(new OracleParameter("vname", vendor_name));
+                
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    VendorsDb thisVendor = new VendorsDb();
+                    thisVendor.vendor_id = reader["vendor_id"].ToString();
+                    thisVendor.vendor_name = reader["vendor_name"].ToString();
                     thisVendor.vendor_address1 = reader[2].ToString();
                     thisVendor.vendor_address2 = reader[3].ToString();
                     thisVendor.vendor_city = reader[4].ToString();

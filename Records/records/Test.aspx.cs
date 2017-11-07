@@ -13,7 +13,7 @@ namespace records
         protected void Page_Load(object sender, EventArgs e)
         {
             VendorsDb vendors = new VendorsDb();
-            List<VendorsDb> list_vendors = vendors.GetAll();
+            List<VendorsDb> list_vendors = vendors.GetAll("US");
             foreach(VendorsDb item in list_vendors)
             {
                 vendors_list.InnerHtml += "<li>" + item.Vendor_Name + "</li>";

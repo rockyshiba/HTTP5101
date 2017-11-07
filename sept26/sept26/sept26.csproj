@@ -75,7 +75,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FizzBuzz.aspx" />
     <Content Include="Geometry.aspx" />
     <Content Include="Global.asax" />
     <Content Include="If.aspx" />
@@ -87,13 +86,6 @@
     <Content Include="whileLoop.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FizzBuzz.aspx.cs">
-      <DependentUpon>FizzBuzz.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FizzBuzz.aspx.designer.cs">
-      <DependentUpon>FizzBuzz.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Geometry.aspx.cs">
       <DependentUpon>Geometry.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
