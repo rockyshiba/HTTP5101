@@ -12,7 +12,7 @@ namespace classObjects.Classes
             return Math.PI * Math.Pow(this.Radius, 2);
         }
 
-        public double Area(double radius)
+        public static double Area(double radius)
         {
             return Math.PI * Math.Pow(radius, 2);
         }

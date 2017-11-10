@@ -8,8 +8,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-        </div>
+        <asp:Textbox ID="txt_name" runat="server"></asp:Textbox>
+        <asp:Button ID="btn_search_name" runat="server" OnClick="btn_search_name_Click" Text="Search by name"/>
     </form>
     <ol id="vendors_list" runat="server"></ol>
 </body>

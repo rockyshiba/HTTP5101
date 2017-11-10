@@ -36,6 +36,8 @@ namespace records.Models
         public string Default_Terms_Id { get { return default_terms_id; } }
         public string Default_Account_Number { get { return default_account_number; } }
 
+        public string Full_Name { get { return First_Name + " " + Last_Name; } }
+
         protected List<VendorsDb> vendors = new List<VendorsDb>();
 
         /// <summary>
@@ -48,6 +50,7 @@ namespace records.Models
             vendors.Clear();
 
             OracleConnection conn = new OracleConnection(connectionString);
+
             try
             {
                 conn.Open();
