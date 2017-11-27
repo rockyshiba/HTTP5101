@@ -69,5 +69,51 @@ namespace records
                 lbl_result_message.Text = "Fail";
             }
         }
+
+        protected void btn_update_terms_Click(object sender, EventArgs e)
+        {
+            int up_terms_id = Convert.ToInt32(txt_id.Text.Trim());
+            string up_terms_description = txt_terms_description.Text.Trim();
+            int up_terms_days = Convert.ToInt32(txt_terms_due_days.Text.Trim());
+
+            TermsDb db = new TermsDb();
+
+            string command = string.Format("UPDATE terms SET terms_description = :tdesc, terms_due_days = :days WHERE terms_id = :tid");
+
+            OracleConnection conn = new OracleConnection(db.connectionString);
+
+            try
+            {
+                conn.Open();
+
+                OracleCommand cmd = new OracleCommand(command, conn);
+                cmd.Parameters.Add(new OracleParameter("tdesc", up_terms_description));
+                cmd.Parameters.Add(new OracleParameter("days", up_terms_days));
+                cmd.Parameters.Add(new OracleParameter("tid", up_terms_id));
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+            }
+            catch(OracleException ex)
+            {
+                lbl_result_message.Text = ex.ToString();
+            }
+        }
+
+        protected void btn_delete_terms_Click(object sender, EventArgs e)
+        {
+            int del_terms_id = Convert.ToInt32(txt_id.Text.Trim());
+
+            TermsDb db = new TermsDb();
+
+            if(db.Delete(del_terms_id))
+            {
+                lbl_result_message.Text = string.Format("Terms id:{0} deleted", txt_id.Text);
+            }
+            else
+            {
+                lbl_result_message.Text = "Item did not successfully delete";
+            }
+        }
     }
 }

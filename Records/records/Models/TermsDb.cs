@@ -23,7 +23,7 @@ namespace records.Models
         //Methods
         public List<TermsDb> GetAll()
         {
-            string query = "SELECT * FROM terms";
+            string query = "SELECT * FROM terms ORDER BY terms_id";
             terms.Clear();
 
             OracleConnection conn = new OracleConnection(connectionString);
@@ -36,9 +36,9 @@ namespace records.Models
                 while (reader.Read())
                 {
                     TermsDb thisTerm = new TermsDb();
-                    thisTerm.terms_id = reader[0].ToString();
+                    thisTerm.terms_id = reader["terms_id"].ToString();
                     thisTerm.terms_description = reader["terms_description"].ToString();
-                    thisTerm.terms_due_days = reader[2].ToString();
+                    thisTerm.terms_due_days = reader["terms_due_days"].ToString();
 
                     terms.Add(thisTerm);
                 }
@@ -84,6 +84,61 @@ namespace records.Models
             {
                 return false;
             }
+        }
+
+        public string Update(int id, string description, int days)
+        {
+            string command = "UPDATE terms SET terms_description = 'updated description fail', terms_due_days = :due_days WHERE terms_id = :id";
+
+            OracleConnection conn = new OracleConnection(connectionString);
+
+            try
+            {
+                conn.Open();
+                var transaction = conn.BeginTransaction();
+
+                cmd = new OracleCommand(command, conn);
+                cmd.Parameters.Add(new OracleParameter("id", id));
+                //cmd.Parameters.Add(new OracleParameter("Description", "Updated description"));
+                cmd.Parameters.Add(new OracleParameter("due_days", days));
+                cmd.Prepare();
+
+                cmd.Transaction = transaction;
+                cmd.ExecuteNonQuery();
+                transaction.Commit();
+                cmd.Dispose();
+
+                conn.Close();
+                return "success";
+            }
+            catch(OracleException exception)
+            {
+                return exception.ToString();
+            }
+        }
+
+        public bool Delete(int id)
+        {
+            string command = "DELETE FROM terms WHERE terms_id = :id";
+
+            OracleConnection conn = new OracleConnection(connectionString);
+
+            try
+            {
+                conn.Open();
+                cmd = new OracleCommand(command, conn);
+                cmd.Parameters.Add(new OracleParameter("id", id));
+
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+                return true;
+            }
+            catch(OracleException ex)
+            {
+                return false;
+            }
+            
         }
     }
 }

@@ -15,6 +15,8 @@
         <asp:Label ID="lbl_terms_due_days" runat="server" Text="Terms Due Days:"></asp:Label>
         <asp:TextBox ID="txt_terms_due_days" runat="server"></asp:TextBox>
         <asp:Button ID="btn_add_terms" runat="server" Text="Add Terms item" OnClick="btn_add_terms_Click" />
+        <asp:Button ID="btn_update_terms" runat="server" Text="Update Terms item" OnClick="btn_update_terms_Click" />
+        <asp:Button ID="btn_delete_terms" runat="server" Text="Delete Terms item" OnClick="btn_delete_terms_Click" />
         <asp:Label ID="lbl_result_message" runat="server"></asp:Label>
     </form>
     <!--<table id="terms_table" runat="server">

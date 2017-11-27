@@ -13,7 +13,7 @@ namespace records.Models
         private string sid = "grok";
         private string user = "";
         private string password = "";
-        protected string connectionString { get { return OracleConnString(host, port, sid, user, password); } }
+        public string connectionString { get { return OracleConnString(host, port, sid, user, password); } }
 
         protected OracleConnection myConnection { get { return new OracleConnection(connectionString); } }
         protected OracleCommand cmd;
