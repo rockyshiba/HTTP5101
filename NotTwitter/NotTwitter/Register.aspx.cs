@@ -20,5 +20,10 @@ namespace NotTwitter
         {
 
         }
+
+        protected void btn_post_submit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
