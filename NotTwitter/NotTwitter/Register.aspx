@@ -29,5 +29,11 @@
     <div>
         <asp:Label ID="lbl_post_author_server" runat="server"></asp:Label>
     </div>
+    <div>
+        <asp:Label ID="lbl_post_count" runat="server"></asp:Label>
+    </div>
+    <div>
+        <asp:Label ID="lbl_post_date" runat="server"></asp:Label>
+    </div>
 </body>
 </html>
