@@ -12,3 +12,6 @@ Contains an example of a project connected to an Oracle database. Look in the Mo
 
 ## NotTwitter
 Class example for November 27, 2017. Small demonstration on functions. Compare the pages noFunctions.aspx and withFunctions.aspx
+
+## TheSchool
+Class example for December 11, 2017. Base classes and their derived classes. 
