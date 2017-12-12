@@ -289,3 +289,5 @@ __pycache__/
 sept26/sept26/FizzBuzz.aspx
 sept26/sept26/FizzBuzz.aspx.cs
 sept26/sept26/FizzBuzz.aspx.designer.cs
+OracleToDb/OracleToDb/Models/OracleCredentials.cs
+ConnectedDb/ConnectedDb/Models/LoginOracle.cs

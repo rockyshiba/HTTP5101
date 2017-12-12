@@ -15,3 +15,6 @@ Class example for November 27, 2017. Small demonstration on functions. Compare t
 
 ## TheSchool
 Class example for December 11, 2017. Base classes and their derived classes. 
+
+## ConnectedDb
+Class example for December 12, 2017 section A. CRUD with an Oracle database. 
