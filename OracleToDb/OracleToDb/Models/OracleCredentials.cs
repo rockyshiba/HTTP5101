@@ -7,7 +7,7 @@ namespace OracleToDb.Models
 {
     public class OracleCredentials
     {
-        public const string username = "lsitu";
+        public const string username = "";
         public const string password = "";
     }
 }
