@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="TermsPage.aspx" />
     <Content Include="VendorContacts.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -87,8 +88,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CalvinDb.cs" />
     <Compile Include="Models\OracleCredentials.cs" />
+    <Compile Include="Models\Terms.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TermsPage.aspx.cs">
+      <DependentUpon>TermsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TermsPage.aspx.designer.cs">
+      <DependentUpon>TermsPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="VendorContacts.aspx.cs">
       <DependentUpon>VendorContacts.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
