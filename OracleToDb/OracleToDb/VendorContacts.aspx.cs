@@ -41,7 +41,7 @@ namespace OracleToDb
             {
                 vendor_contacts.InnerHtml = excep.ToString();
                 vendor_contacts.InnerHtml = excep.Message;
-                vendor_contacts.InnerHtml = excep.ErrorCode.ToString();
+                //vendor_contacts.InnerHtml = excep.ErrorCode.ToString();
             }
             finally
             {
@@ -69,7 +69,14 @@ namespace OracleToDb
                     + "'" + vendor_email + "'"
                     + ")";
 
+                command = "INSERT INTO vendor_contacts VALUES(:Id, :l_name, :f_name, :email)"; //prepared statement
+
                 OracleCommand cmd = new OracleCommand(command, conn);
+                cmd.Parameters.Add( new OracleParameter("Id", Convert.ToInt32(vendor_id) ) );
+                cmd.Parameters.Add(new OracleParameter("l_name", vendor_last_name));
+                cmd.Parameters.Add(new OracleParameter("f_name", vendor_first_name));
+                cmd.Parameters.Add(new OracleParameter("email", vendor_email));
+
                 rows = cmd.ExecuteNonQuery();
 
                 conn.Close();
@@ -97,8 +104,23 @@ namespace OracleToDb
                 conn.Open();
 
                 string command = "UPDATE vendor_contacts SET last_name = '" + vendor_last_name + "', first_name = '" + vendor_first_name + "', vendor_email = '" + vendor_email + "' WHERE vendor_id  = " + vendor_id;
+                command = String.Format("UPDATE vendor_contacts SET last_name = '{0}', first_name = '{1}', vendor_email = '{2}' WHERE vendor_id = {3}",
+                    vendor_last_name,
+                    vendor_first_name,
+                    vendor_email,
+                    vendor_id
+                    );
+
+                command = "UPDATE vendor_contacts " +
+                    "SET last_name = :l_name, first_name = :f_name, vendor_email = :v_email " +
+                    "WHERE vendor_id = :v_id";
 
                 OracleCommand cmd = new OracleCommand(command, conn);
+                cmd.Parameters.Add(new OracleParameter("l_name", vendor_last_name));
+                cmd.Parameters.Add(new OracleParameter("f_name", vendor_first_name));
+                cmd.Parameters.Add(new OracleParameter("v_email", vendor_email));
+                cmd.Parameters.Add(new OracleParameter("v_id", Convert.ToInt32(vendor_id) ));
+
                 rows = cmd.ExecuteNonQuery();
 
                 conn.Close();
@@ -109,13 +131,35 @@ namespace OracleToDb
             }
             finally
             {
-                lbl_server_message.Text += " " + Convert.ToString(rows);
+                lbl_server_message.Text += " " + Convert.ToString(rows) + " rows updated.";
             }
         }
 
         protected void btn_delete_vendor_contact_Click(object sender, EventArgs e)
         {
+            string vendor_id = txt_vendor_id.Text;
+            string command = String.Format("DELETE FROM vendor_contacts WHERE vendor_id = {0}", vendor_id);
+            command = "DELETE FROM vendor_contacts WHERE vendor_id = :v_id";
 
+            int rows = 0;
+            try
+            {
+                conn.Open();
+
+                OracleCommand cmd = new OracleCommand(command, conn);
+                cmd.Parameters.Add(new OracleParameter("v_id", Convert.ToInt32(vendor_id)));
+                rows = cmd.ExecuteNonQuery();
+
+                conn.Close();
+            }
+            catch(OracleException ex)
+            {
+                lbl_server_message.Text = ex.Message;
+            }
+            finally
+            {
+                lbl_server_message.Text = Convert.ToString(rows) + " rows deleted";
+            }
         }
 
         public static string OracleConnString(string host, string port, string servicename, string user, string pass)
