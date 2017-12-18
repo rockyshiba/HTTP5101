@@ -21,6 +21,7 @@ namespace ConnectedDb
        
         protected void Page_Load(object sender, EventArgs e)
         {
+            list_vendor_contacts.InnerHtml = "";
             //Query
             string query = "SELECT vendor_id AS id, first_name AS fn FROM vendor_contacts";
 
@@ -73,11 +74,17 @@ namespace ConnectedDb
                 txt_email.Text
                 );
 
+            command = "INSERT INTO vendor_contacts (vendor_id, last_name, first_name) VALUES(:id, :l_name, :f_name)";
+
             try
             {
                 conn.Open(); //open
 
                 OracleCommand cmd = new OracleCommand(command, conn); //command object with sql command and connection
+                cmd.Parameters.Add(new OracleParameter("id", Convert.ToInt32(txt_id.Text)));
+                cmd.Parameters.Add(new OracleParameter("l_name", txt_last_name.Text));
+                cmd.Parameters.Add(new OracleParameter("f_name", txt_first_name.Text));
+
                 int rows = cmd.ExecuteNonQuery(); //executing the command on the connection
                 lbl_rows_affected.Text = Convert.ToString(rows) + " rows inserted"; //Output to page number of rows inserted
 
@@ -104,11 +111,18 @@ namespace ConnectedDb
                 txt_first_name.Text,
                 txt_id.Text
                 );
+
+            command = "UPDATE vendor_contacts SET last_name = :l_name, first_name = :f_name WHERE vendor_id = :id";
+
             try
             {
                 conn.Open();
 
                 OracleCommand cmd = new OracleCommand(command, conn);
+                cmd.Parameters.Add(new OracleParameter("f_name", txt_first_name.Text));
+                cmd.Parameters.Add(new OracleParameter("l_name", txt_last_name.Text));
+                cmd.Parameters.Add(new OracleParameter("id", Convert.ToInt32(txt_id.Text) ));
+
                 int rows = cmd.ExecuteNonQuery();
                 lbl_rows_affected.Text = Convert.ToString(rows) + " rows updated";
 
@@ -124,12 +138,16 @@ namespace ConnectedDb
         {
             string command = "DELETE FROM vendor_contacts WHERE vendor_id = 100";
             command = String.Format("DELETE FROM vendor_contacts WHERE vendor_id = {0}", txt_id.Text);
+            command = "DELETE FROM vendor_contacts WHERE vendor_id = :id"; //Prepared statement
 
             try
             {
                 conn.Open();
 
                 OracleCommand cmd = new OracleCommand(command, conn);
+                //Add value to parameter
+                cmd.Parameters.Add(new OracleParameter("id", Convert.ToInt32(txt_id.Text)));
+
                 int rows_deleted = cmd.ExecuteNonQuery();
                 lbl_rows_affected.Text = Convert.ToString(rows_deleted) + " rows deleted";
 
