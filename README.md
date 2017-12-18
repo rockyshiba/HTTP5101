@@ -18,3 +18,6 @@ Class example for December 11, 2017. Base classes and their derived classes.
 
 ## ConnectedDb
 Class example for December 12, 2017 section A. CRUD with an Oracle database. 
+
+## OracleToDb 
+Class example for December 12, 2016 section B. The Models directory contains classes that represent the database and the Terms table.
