@@ -14,6 +14,7 @@ namespace Sessions
             if (!String.IsNullOrEmpty((string)Session["email"]))
             {
                 page_heading.InnerText = "Hi " + (string)Session["email"];
+                //page_heading.InnerText = Session.SessionID.ToString();
             }
             else
             {

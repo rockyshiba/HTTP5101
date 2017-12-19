@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OracleToDb {
+namespace Sessions {
     
     
-    public partial class TermsPage {
+    public partial class Login2 {
         
         /// <summary>
         /// form1 control.
@@ -22,57 +22,48 @@ namespace OracleToDb {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// btn_add_terms control.
+        /// lbl_username control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_add_terms;
+        protected global::System.Web.UI.WebControls.Label lbl_username;
         
         /// <summary>
-        /// btn_update_terms control.
+        /// txt_username control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_update_terms;
+        protected global::System.Web.UI.WebControls.TextBox txt_username;
         
         /// <summary>
-        /// btn_delete_term control.
+        /// txt_password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_delete_term;
+        protected global::System.Web.UI.WebControls.TextBox txt_password;
         
         /// <summary>
-        /// lbl_success_message control.
+        /// btn_login control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_success_message;
+        protected global::System.Web.UI.WebControls.Button btn_login;
         
         /// <summary>
-        /// lbl_error_message control.
+        /// btn_logout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_error_message;
-        
-        /// <summary>
-        /// list_terms control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl list_terms;
+        protected global::System.Web.UI.WebControls.Button btn_logout;
     }
 }

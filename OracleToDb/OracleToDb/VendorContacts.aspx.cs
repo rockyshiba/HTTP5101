@@ -35,6 +35,7 @@ namespace OracleToDb
                 {
                     vendor_contacts.InnerHtml += reader["first_name"] + " ";
                 }
+                reader.Close();
                 conn.Close(); //close connection
             }
             catch (OracleException excep)
@@ -172,6 +173,11 @@ namespace OracleToDb
               servicename,
               user,
               pass);
+        }
+
+        protected void btn_blank_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

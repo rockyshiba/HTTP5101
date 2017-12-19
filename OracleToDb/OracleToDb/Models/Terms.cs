@@ -30,5 +30,7 @@ namespace OracleToDb.Models
             get { return this._terms_due_days; }
             set { this._terms_due_days = value; }
         }
+
+        public Vendors Vendor { get; set; }
     }
 }

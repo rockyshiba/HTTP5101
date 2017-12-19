@@ -91,6 +91,8 @@
     <Compile Include="Models\CalvinDb.cs" />
     <Compile Include="Models\OracleCredentials.cs" />
     <Compile Include="Models\Terms.cs" />
+    <Compile Include="Models\VendorContacts.cs" />
+    <Compile Include="Models\Vendors.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TermsPage.aspx.cs">
       <DependentUpon>TermsPage.aspx</DependentUpon>

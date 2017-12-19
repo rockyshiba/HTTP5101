@@ -7,6 +7,7 @@
     <title></title>
 </head>
 <body>
+    <asp:Button ID="btn_blank" runat="server" OnClick="btn_blank_Click" />
     <form id="form1" runat="server">
         <div id="vendor_contacts" runat="server">
 
