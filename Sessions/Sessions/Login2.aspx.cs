@@ -32,6 +32,7 @@ namespace Sessions
 
         protected void btn_login_Click(object sender, EventArgs e)
         {
+            //Check login values against the table containing login information in the database
             conn.ConnectionString = connectionString;
 
             conn.Open();
@@ -46,12 +47,15 @@ namespace Sessions
             {
                 while (reader.Read())
                 {
+                    //The session variable will be the value of the email column
                     Session["pineapple"] = reader["email"].ToString();
+                    //Go to the login2.aspx page
                     Response.Redirect("login2.aspx");
                 }
             }
             else
             {
+                //Kill the session
                 Session.Abandon();
                 lbl_username.Text = "User not found";
             }

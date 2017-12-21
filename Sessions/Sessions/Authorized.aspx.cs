@@ -11,7 +11,7 @@ namespace Sessions
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty((string)Session["email"]))
+            if (!String.IsNullOrEmpty((string)Session["email"])) //If the email session variable is not null or empty
             {
                 page_heading.InnerText = "Hi " + (string)Session["email"];
                 //page_heading.InnerText = Session.SessionID.ToString();

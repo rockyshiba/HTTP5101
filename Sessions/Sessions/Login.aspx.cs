@@ -16,7 +16,7 @@ namespace Sessions
         protected void Page_Load(object sender, EventArgs e)
         {
             //Using a get variable
-            lbl_get_var.Text = Request.QueryString["language"];
+            lbl_get_var.Text = Request.QueryString["language"]; //This will return the value of a variable named language in the query string. It looks like this ?language=ENG where ENG would be the value. 
 
             //Check if session variable is set
             if (Session["email"] != null)
