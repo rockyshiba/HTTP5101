@@ -47,15 +47,16 @@ namespace OracleToDb.Models
 
                 while (reader.Read())
                 {
-                    Terms t = new Terms();
-                    t.Terms_Id = Convert.ToInt32(reader["terms_id"]);
-                    t.Terms_Description = reader["terms_description"].ToString();
-                    t.Terms_Due_Days = Convert.ToInt32(reader["terms_due_days"]);
+                    Terms reader_term = new Terms();
+                    reader_term.Terms_Id = Convert.ToInt32(reader["terms_id"]);
+                    reader_term.Terms_Description = reader["terms_description"].ToString();
+                    reader_term.Terms_Due_Days = Convert.ToInt32(reader["terms_due_days"]);
 
-                    t.Vendor = new Vendors();
-                    t.Vendor.Vendor_Name = reader["vendor_name"].ToString();
+                    //Terms has a property with the properties of the Vendors class. To use this, the property itself needs to be a new instance of the Vendors class. 
+                    reader_term.Vendor = new Vendors();
+                    reader_term.Vendor.Vendor_Name = reader["vendor_name"].ToString();
 
-                    terms.Add(t);
+                    terms.Add(reader_term);
                 }
 
                 conn.Close();
